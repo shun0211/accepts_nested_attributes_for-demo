@@ -1,0 +1,16 @@
+<h1>New Article</h1>
+
+<%= form_with model: @article do |f| %>
+  <%= f.label :title, "タイトル" %>
+  <%= f.text_field :title %>
+  <%= f.label :body, "記事" %>
+  <%= f.text_field :body %>
+    <%= f.fields_for :categories do |g| %>
+    <%= g.label :name, "カテゴリー" %>
+    <%= g.text_field :name %>
+  <% end %>
+
+  <p><%= f.submit %></p>
+<% end %>
+
+<%= link_to 'Back', articles_path %>
